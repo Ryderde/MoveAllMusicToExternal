@@ -2,6 +2,8 @@
 
 import os
 from pathlib import Path
+import shutil
+
 
 os.chdir("/storage/emulated/0")
 
@@ -14,4 +16,5 @@ def is_audio(file):
 for dirPath, dirName, fileNames in os.walk(os.getcwd()):
     for fileName in fileNames:
         if is_audio(fileName):
-            print(f"{dirPath}  =>  {fileName}")
+            print (f"{dirPath}{fileName}")
+            shutil.move(f"{dirPath}/{fileName}", "AllAudio")  
